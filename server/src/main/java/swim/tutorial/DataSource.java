@@ -2,6 +2,11 @@ package swim.tutorial;
 
 import swim.api.ref.WarpRef;
 import swim.structure.Record;
+// import io.github.redouane59.twitter.TwitterClient;
+// import io.github.redouane59.twitter.dto.tweet.Tweet;
+// import io.github.redouane59.twitter.signature.TwitterCredentials;
+import java.util.List;
+
 
 /**
  * Simple wrapper around some {@code SwimRef}, e.g. a {@code SwimClient} handle,

@@ -2,6 +2,7 @@ import java.util.regex.Matcher
 
 buildscript {
   repositories {
+    mavenCentral() //my add to set up twittered
     maven { url 'https://plugins.gradle.org/m2/' }
   }
 }
@@ -31,6 +32,7 @@ repositories {
 dependencies {
   api group: 'org.swimos', name: 'swim-server', version: version
   api group: 'org.swimos', name: 'swim-client', version: version
+  //implementation 'io.github.redouane59:twitterapi:3.0.0' //also my add
 }
 
 afterEvaluate {
