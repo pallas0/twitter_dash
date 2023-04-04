@@ -52,26 +52,26 @@ class DataSource {
     }
   }
 
-//   public static void main(String[] args) {
-//     String accessToken = "1585455903544786944-59p5Rnbt1D0GPpIE3bHKpgBN72G3ov";
-//     String accessTokenSecret = "oeijmzdxKUxY2fKBkE7jaxGjphqFtZnlb6QcVrzy1FiI0";
-//     String bearerToken = "AAAAAAAAAAAAAAAAAAAAAD26mQEAAAAAw%2FkNWI%2FMMBioPIapG1MRmCtXL7g%3DPc29nsmIldwPZmJkj7YwoqQYvfwEPYo4RSASOGOjv6yD4srCb1";
-//     TwitterCredentials credentials = TwitterCredentials.builder()
-//             .accessToken(accessToken)
-//             .accessTokenSecret(accessTokenSecret)
-//             .bearerToken(bearerToken)
-//             .build();
+  public static void main(String[] args) {
+    String accessToken = "1585455903544786944-59p5Rnbt1D0GPpIE3bHKpgBN72G3ov";
+    String accessTokenSecret = "oeijmzdxKUxY2fKBkE7jaxGjphqFtZnlb6QcVrzy1FiI0";
+    String bearerToken = "AAAAAAAAAAAAAAAAAAAAAD26mQEAAAAAw%2FkNWI%2FMMBioPIapG1MRmCtXL7g%3DPc29nsmIldwPZmJkj7YwoqQYvfwEPYo4RSASOGOjv6yD4srCb1";
+    TwitterCredentials credentials = TwitterCredentials.builder()
+            .accessToken(accessToken)
+            .accessTokenSecret(accessTokenSecret)
+            .bearerToken(bearerToken)
+            .build();
 
-//     TwitterClient client = new TwitterClient(credentials);
+    TwitterClient client = new TwitterClient(credentials);
 
-//     try {
-//         Tweet[] tweets = client.getUserTimeline("elonmusk", 5);
-//         for (Tweet tweet : tweets) {
-//             System.out.println("Tweet: " + tweet.getText());
-//         }
-//     } catch (Exception e) {
-//         e.printStackTrace();
-//     }
-// }
+    // try {
+    //     Tweet[] tweets = client.getUserTimeline("elonmusk", 5);
+    //     for (Tweet tweet : tweets) {
+    //         System.out.println("Tweet: " + tweet.getText());
+    //     }
+    // } catch (Exception e) {
+    //     e.printStackTrace();
+    // }
+}
 
 }

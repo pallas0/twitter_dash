@@ -33,7 +33,7 @@ dependencies {
   api group: 'org.swimos', name: 'swim-server', version: version
   api group: 'org.swimos', name: 'swim-client', version: version
   implementation 'io.github.redouane59.twitter:twittered:2.16'
-  //implementation files('libs/twittered-2.16.jar') -- apparently this yields duplicate
+  //implementation files('libs/twittered-2.16.jar') // -- apparently this yields duplicate
 }
 
 afterEvaluate {
