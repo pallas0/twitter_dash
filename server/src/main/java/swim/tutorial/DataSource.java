@@ -62,16 +62,20 @@ class DataSource {
             .bearerToken(bearerToken)
             .build();
 
-    TwitterClient client = new TwitterClient(credentials);
+    TwitterClient twitterClient = new TwitterClient(credentials);
 
     // try {
-    //     Tweet[] tweets = client.getUserTimeline("elonmusk", 5);
+    //     Tweet[] tweets = client.getUserTimeline("elonmusk");
     //     for (Tweet tweet : tweets) {
     //         System.out.println("Tweet: " + tweet.getText());
     //     }
     // } catch (Exception e) {
     //     e.printStackTrace();
     // }
+
+    Tweet tweet = twitterClient.getTweet("1224041905333379073");
+
+
 }
 
 }
