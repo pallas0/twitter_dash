@@ -66,10 +66,12 @@ function removeFromPlot(key) {
   plotView.removeDataPoint(time);
 }
 
+//ok, I  think this is where info updates are received
 const histogramLink = swim.downlinkMap()
     .hostUri("warp://localhost:9001")
     .nodeUri("/unit/master")
     .laneUri("histogram")
+    //called when new val is received
     .didUpdate(function(key, value) {
       addToPlot(key, value);
     })
