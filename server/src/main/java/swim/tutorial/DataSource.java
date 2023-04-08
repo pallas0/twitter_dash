@@ -2,17 +2,19 @@ package swim.tutorial;
 
 import swim.api.ref.WarpRef;
 import swim.structure.Record;
-import io.github.redouane59.twitter.TwitterClient;
-import io.github.redouane59.twitter.dto.tweet.Tweet;
-import io.github.redouane59.twitter.signature.TwitterCredentials;
-import java.util.List;
+import com.twitter.clientlib.TwitterCredentialsOAuth2;
+import com.twitter.clientlib.ApiException;
+import com.twitter.clientlib.api.TwitterApi;
+import com.twitter.clientlib.model.*;
+
 
 
 /**
  * Simple wrapper around some {@code SwimRef}, e.g. a {@code SwimClient} handle,
  * that pushes data to the Swim server running at {@code hostUri}.
  */
-class DataSource {
+public class DataSource {
+
 
   private final WarpRef ref;
   private final String hostUri;
@@ -52,32 +54,32 @@ class DataSource {
     }
   }
 
-  public static void main(String[] args) {
-    String accessToken = "1585455903544786944-59p5Rnbt1D0GPpIE3bHKpgBN72G3ov";
-    String accessTokenSecret = "oeijmzdxKUxY2fKBkE7jaxGjphqFtZnlb6QcVrzy1FiI0";
-    String bearerToken = "AAAAAAAAAAAAAAAAAAAAAD26mQEAAAAAw%2FkNWI%2FMMBioPIapG1MRmCtXL7g%3DPc29nsmIldwPZmJkj7YwoqQYvfwEPYo4RSASOGOjv6yD4srCb1";
-    TwitterCredentials credentials = TwitterCredentials.builder()
-            .accessToken(accessToken)
-            .accessTokenSecret(accessTokenSecret)
-            .bearerToken(bearerToken)
-            .build();
+   public static void main(String[] args) {
+    //  String accessToken = "1585455903544786944-59p5Rnbt1D0GPpIE3bHKpgBN72G3ov";
+    //  String accessTokenSecret = "oeijmzdxKUxY2fKBkE7jaxGjphqFtZnlb6QcVrzy1FiI0";
+    //  String bearerToken = "AAAAAAAAAAAAAAAAAAAAAD26mQEAAAAAw%2FkNWI%2FMMBioPIapG1MRmCtXL7g%3DPc29nsmIldwPZmJkj7YwoqQYvfwEPYo4RSASOGOjv6yD4srCb1";
+    // TwitterCredentials credentials = TwitterCredentials.builder()
+    //         .accessToken(accessToken)
+    //         .accessTokenSecret(accessTokenSecret)
+    //         .bearerToken(bearerToken)
+    //         .build();
 
-    TwitterClient twitterClient = new TwitterClient(credentials);
+    //  TwitterClient twitterClient = new TwitterClient(credentials);
 
-    //even after debugging, keep this block commented out
-    // try {
-    //     Tweet[] tweets = client.getUserTimeline("elonmusk");
-    //     for (Tweet tweet : tweets) {
-    //         System.out.println("Tweet: " + tweet.getText());
-    //     }
-    // } catch (Exception e) {
-    //     e.printStackTrace();
-    // }
-    //end here
+//     //even after debugging, keep this block commented out
+//     // try {
+//     //     Tweet[] tweets = client.getUserTimeline("elonmusk");
+//     //     for (Tweet tweet : tweets) {
+//     //         System.out.println("Tweet: " + tweet.getText());
+//     //     }
+//     // } catch (Exception e) {
+//     //     e.printStackTrace();
+//     // }
+//     //end here
 
-    Tweet tweet = twitterClient.getTweet("1224041905333379073");
+//     Tweet tweet = twitterClient.getTweet("1224041905333379073");
 
 
-}
+ }
 
 }

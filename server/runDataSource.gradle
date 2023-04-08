@@ -1,4 +1,0 @@
-task runDataSource(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'src.main.java.swim.tutorial.DataSource'
-}

@@ -2,7 +2,7 @@ import java.util.regex.Matcher
 
 buildscript {
   repositories {
-    mavenCentral()
+    //mavenCentral()
     maven { url 'https://plugins.gradle.org/m2/' }
   }
 }
@@ -20,10 +20,14 @@ ext.moduleName = 'swim.tutorial'
 sourceCompatibility = 11
 version = project.property('swim.version')
 mainClassName = 'swim.tutorial.TutorialPlane'
+//mainClassName = 'swim.tutorial.DataSource'
 
 //def moduleName = 'swim.tutorial'
 def jvmVersion = System.getProperty('java.version').split('\\.')[0] as Integer
 def useModules = jvmVersion >= 9 && !project.hasProperty('no-modules')
+
+def jackson_version = '2.13.4'
+def jackson_databind_version = '2.13.4.1'
 
 repositories {
   mavenCentral()
@@ -32,9 +36,24 @@ repositories {
 dependencies {
   api group: 'org.swimos', name: 'swim-server', version: version
   api group: 'org.swimos', name: 'swim-client', version: version
-  implementation 'io.github.redouane59.twitter:twittered:2.16'
+  implementation "com.twitter:twitter-api-java-sdk:2.0.3" 
+  }
+  //implementation 'io.github.redouane59.twitter:twittered:2.20'
   //implementation files('libs/twittered-2.16.jar') // -- apparently this yields duplicate
-}
+
+//   constraints {
+//     implementation('com.fasterxml.jackson:jackson-bom:2.13.4') {
+
+//         because 'previous versions are vulnerable to CVE-2020-36518'
+//     }
+//     implementation('com.fasterxml.jackson.core:jackson-databind:2.13.4.2') {
+//         because 'previous versions are vulnerable to CVE-2020-36518'
+//     }
+// }
+
+ 
+
+
 
 afterEvaluate {
 
@@ -80,10 +99,22 @@ afterEvaluate {
       jvmArgs += [
               '--module-path', files(configurations.runtimeClasspath, jar.archiveFile).asPath,
               '--module', "${moduleName}/${mainClassName}"
+              //'--module', "${moduleName}/swim.tutorial.DataSource"
       ]
       classpath = files()
     }
   }
+
+  // runDataSource {
+  //   dependsOn jar
+  //   doFirst {
+  //     jvmArgs += [
+  //             '--module-path', files(configurations.runtimeClasspath, jar.archiveFile).asPath,
+  //             '--module', "${moduleName}/swim.tutorial.DataSource"
+  //     ]
+  //     classpath = files()
+  //   }
+  // }
 
   startScripts {
     inputs.property("moduleName", moduleName)
@@ -146,4 +177,4 @@ afterEvaluate {
   }
 }
 
-apply from: 'runDataSource.gradle' //ok ok giving this a go
+//apply from: 'runDataSource.gradle' //ok ok giving this a go
